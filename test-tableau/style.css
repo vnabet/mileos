@@ -1,0 +1,119 @@
+
+/************************************************************/
+/** INDEX                                                   */
+/** 01- Reset                                               */
+/** 02- Conteneur de page                                   */
+/** 03- Tableau                                             */
+/************************************************************/
+
+/************************************************************/
+/** 01- Reset                                               */
+/************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+html, body {
+  height: 100%;
+  /* font-family: 'Roboto', 'Courier New', Courier, monospace; */
+  font-family: 'Poppins', 'Courier New', Courier, monospace;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+/************************************************************/
+/** 02- Conteneur de page                                   */
+/************************************************************/
+main {
+  position: relative;
+  width: 100%;
+  padding: 3rem;
+}
+
+
+/************************************************************/
+/** 03- Tableau                                             */
+/************************************************************/
+table {
+  width: 100%;
+}
+
+td, span {
+  text-align: center;
+  background-color: cornsilk;
+}
+
+.periods {
+  display: none;
+}
+
+.dates td {
+  background-color: burlywood;
+}
+
+.row-legend span, td.legend:not(.head) {
+  background-color: beige;
+  text-align: left;
+  font-style: italic;
+  padding: .3em;
+}
+
+.row-legend td {
+  background-color: transparent;
+}
+.row-legend span {
+  width: 100%;
+  display: block;
+  margin-top: .5rem;
+}
+
+.legend, .j-4, .j-3, .j-2, .j2 {
+  display: none;
+}
+
+.j {
+  font-weight: 600;
+}
+
+@media(min-width: 768px) {
+  .j-2, .j2 {
+    display: table-cell;
+  }
+}
+
+@media(min-width: 992px) {
+  .row-legend {
+    display: none;
+  }
+
+  .legend, .j-4, .j-3 {
+    display: table-cell;
+  }
+
+  .periods {
+    display: table-row;
+  }
+
+  .periods td:first-child {
+    background-color: transparent;
+  }
+}
