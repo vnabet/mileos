@@ -13,13 +13,16 @@
 /** 01- Variables                                           */
 /************************************************************/
 :root {
-  --bg-dark-color: #f1f1f1;
-  /* --bg-dark-color: orange; */
+  /* --bg-dark-color: #f1f1f1; */
+  --bg-darken-color: #aaa;
+  --bg-dark-color: #ddd;
   --bg-light-color: #fff;
 
   --blue-color: #3864b3;
   --green-color: #94cc3d;
   --red-color: #be202e;
+  --orange-color: orange;
+
 
   --text-color: #000;
   --text-light-color: #8b8b8b;
@@ -148,6 +151,35 @@ input[type='radio']:checked+label {
   /* border: 1px solid orange; */
   background-color: var(--blue-color);
   color: white;
+}
+
+.clickable  {
+  position: relative;
+}
+
+.clickable a:first-child::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color: #000;
+  opacity: .3; */
+  top:0;
+  left: 0;
+}
+
+.lower {
+  font-size: .9em;
+}
+
+.hidden-small {
+  display: none !important;
+}
+
+@media(min-width: 768px) {
+  .hidden-small {
+    display: inherit !important;
+  }
 }
 
 /************************************************************/
@@ -306,9 +338,13 @@ ul.plots .detail {
 }
 
 ul.plots .detail h3 {
-  color: var(--blue-color);
   font-size: 1rem;
   line-height: 1.5;
+}
+
+ul.plots .detail h3 a {
+  color: var(--blue-color);
+  text-decoration: none;
 }
 
 ul.plots .detail p {
@@ -327,7 +363,7 @@ ul.plots .detail p {
   position: relative;
   width: 100%;
   display: flex;
-  height: 80px;
+  /* height: 80px; */
   overflow: hidden;
 }
 
@@ -337,17 +373,22 @@ ul.plots .detail p {
   margin: 0;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   column-gap: 15px;
   margin-left: 10px;
   flex-grow: 1;
   font-size: .8rem;
 }
 
+.plot-detail .status {
+  display: none;
+}
+
 .plot-detail ul.infos li {
-  /* width: calc(50% - 90px); */
+  /* width: calc(50% - 15px); */
   position: relative;
   display: flex;
+  border-bottom: 1px solid var(--bg-dark-color);
 }
 
 .plot-detail .label {
@@ -355,9 +396,130 @@ ul.plots .detail p {
 }
 
 .plot-detail .value {
-  /* color: var(--text-light-color); */
   text-align: right;
-  /* flex-grow: 1; */
+  flex-grow: 1;
+}
+
+@media(min-width: 768px) {
+  .plot-detail {
+    max-height: 80px;
+  }
+
+  .plot-detail ul.infos {
+    flex-wrap: wrap;
+  }
+
+
+  .plot-detail .status {
+    display: flex;
+  }
+}
+
+/**Conseils**/
+.advice {
+  /* font-weight: bold; */
+  margin: 20px 0;
+  border: 1px solid var(--bg-dark-color);
+  padding: 20px;
+  /* display: flex; */
+}
+
+.advice.warning, .advice.warning strong {
+  color: var(--red-color);
+}
+
+.advice.warning::before {
+  content: '\E000';
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.2rem;
+}
+
+/**Légendes**/
+.legends {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  font-size: .8em;
+  position: relative;
+}
+
+.legends-group {
+  flex: 1;
+}
+
+.legends h4 {
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.legends ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10px;
+  border: 1px solid var(--bg-dark-color);
+  padding: 10px;
+}
+
+.legends li {
+  display: flex;
+  align-items: center;
+}
+
+.legends li::before  {
+  content:'0-9';
+  font-size: .7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 20px;
+  background-color: transparent;
+  margin: 0 5px;
+  border: 1px solid var(--bg-dark-color)
+}
+
+li.forecast::before {
+  background-color: var(--bg-dark-color);
+}
+
+li.risk:not(.forecast)::before {
+  background-color: var(--red-color);
+  color: white;
+}
+
+li.risk.forecast::before {
+  color: var(--red-color);
+}
+
+li.vigilance:not(.forecast)::before {
+  background-color: var(--orange-color);
+  content: '';
+}
+
+li.vigilance.forecast::before {
+  color: var(--orange-color);
+}
+
+li.no-risk:not(.forecast)::before {
+  background-color: var(--green-color);
+}
+
+li.no-risk.forecast::before {
+  color: var(--text-color);
+}
+
+@media(min-width: 768px) {
+  .legends-group {
+    flex: none;
+  }
+
+
+  .legends ul {
+    flex-direction: row;
+  }
 }
 
 /**/

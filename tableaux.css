@@ -1,0 +1,139 @@
+
+/************************************************************/
+/** INDEX                                                   */
+/** 01- Reset                                               */
+/** 02- Conteneur de page                                   */
+/** 03- Tableau                                             */
+/************************************************************/
+
+/************************************************************/
+/** 03- Tableau                                             */
+/************************************************************/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+/* td, td span {
+  text-align: center;
+  background-color: cornsilk;
+} */
+td {
+  text-align: center;
+  border: 1px solid var(--bg-dark-color);
+}
+
+td.left {
+  border-left-width: 2px;
+  border-left-color: var(--bg-darken-color);
+}
+
+td.right {
+  border-right-width: 2px;
+  border-right-color: var(--bg-darken-color);
+}
+
+td.bottom {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--bg-darken-color);
+}
+
+td.top {
+  border-top-width: 2px;
+  border-top-color: var(--bg-darken-color);
+}
+
+td.forecast {
+  background-color: var(--bg-dark-color);
+}
+
+.dates td:first-child, .row-legend td  {
+  border: none;
+}
+
+.periods {
+  display: none;
+}
+
+/* .dates td {
+  background-color: burlywood;
+} */
+
+.row-legend span, td.legend:not(.head) {
+  /* background-color: beige; */
+  text-align: left;
+  font-style: italic;
+  padding: .1em;
+}
+
+/* .row-legend td {
+  background-color: transparent;
+} */
+.row-legend span {
+  width: 100%;
+  display: block;
+  margin-top: .6rem;
+  outline: 1px solid var(--bg-dark-color);
+  outline-offset: 1px;
+}
+
+.legend, .j-4, .j-3, .j-2, .j2 {
+  display: none;
+}
+
+.j {
+  font-weight: 600;
+}
+
+td.risk:not(.forecast) {
+  background-color: var(--red-color);
+  color: white;
+}
+
+td.risk.forecast {
+  color: var(--red-color);
+}
+
+td.vigilance:not(.forecast) {
+  background-color: var(--orange-color);
+  /* color: white; */
+}
+
+td.vigilance.forecast {
+  color: var(--orange-color);
+  /* text-shadow: black 1px 0 2px; */
+  /* -webkit-text-stroke: 1px black; */
+}
+
+td.no-risk:not(.forecast) {
+  background-color: var(--green-color);
+}
+
+td.no-risk.forecast {
+  color: var(--text-color);
+}
+
+@media(min-width: 768px) {
+  .j-2, .j2 {
+    display: table-cell;
+  }
+}
+
+@media(min-width: 992px) {
+  .row-legend {
+    display: none;
+  }
+
+  .legend, .j-4, .j-3 {
+    display: table-cell;
+  }
+
+  .periods {
+    display: table-row;
+  }
+
+  .periods td:first-child {
+    background-color: transparent;
+  }
+}
