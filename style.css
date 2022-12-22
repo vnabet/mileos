@@ -5,6 +5,13 @@
 /** 03- Header                                              */
 /** 04- Navigation                                          */
 /** 05- Main content                                        */
+/** 06- Liste des parcelles                                 */
+/** 07- Bloc de mise à jour                                 */
+/** 08- Détail d'une parcelle                               */
+/** 09- Bloc des conseils                                   */
+/** 10- Tableau des risques                                 */
+/** 11- Légende du tableau des risques                      */
+/** 12- Pied de page                                        */
 /************************************************************/
 
 @import url(./reset.css);
@@ -22,7 +29,6 @@
   --green-color: #94cc3d;
   --red-color: #be202e;
   --orange-color: orange;
-
 
   --text-color: #000;
   --text-light-color: #8b8b8b;
@@ -52,6 +58,7 @@ h2 {
   font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
+/** Surcharge des icones material symbols **/ 
 .material-symbols-rounded {
   font-size: 30px;
 }
@@ -60,6 +67,7 @@ h2 {
   font-size: 24px;
 }
 
+/** Couleur de texte **/
 .blue {
   color: var(--blue-color);
 }
@@ -76,6 +84,7 @@ h2 {
   color: var(--text-light-color);
 }
 
+/** Boutons et liens boutons **/
 button, a.button {
   display: inline-block;
   background-color: transparent;
@@ -97,23 +106,7 @@ button.icon, a.button.icon {
   font-size: 1.2rem;
 }
 
-
-button.update {
-  background-color: var(--green-color);
-  color: white;
-}
-
-.update {
-  color: var(--text-light-color);
-}
-
-@media(min-width: 768px) {
-  .update {
-    display: flex;
-    gap: 20px;
-  }
-}
-
+/** Mise en forme des fieldset **/
 fieldset {
   /* border: none; */
   border-color: var(--bg-dark-color);
@@ -136,6 +129,7 @@ fieldset legend {
   display: inline-block;
 }
 
+/** Radio button sous forme de boutons **/
 input[type='radio'] {
   display: none;
 }
@@ -157,6 +151,8 @@ input[type='radio']:checked+label {
   color: white;
 }
 
+/** Elements clickables.**/ 
+/** On récupère le premier lien enfant de l'élément pour rendre ce dernier cliquable **/
 .clickable  {
   position: relative;
 }
@@ -172,10 +168,12 @@ input[type='radio']:checked+label {
   left: 0;
 }
 
+/** Texte en petit **/
 .lower {
   font-size: .9em;
 }
 
+/** Eléments à masquer sur mobile **/
 .hidden-small {
   display: none !important;
 }
@@ -278,13 +276,15 @@ main {
 
 }
 
-@media(min-width: 768px) {
+/* @media(min-width: 768px) {
   main {
     flex-direction: column;
   }
-}
+} */
 
-/**/
+/************************************************************/
+/** 06- Liste des parcelles                                 */
+/************************************************************/
 .group {
   position: relative;
   width: 100%;
@@ -362,7 +362,31 @@ ul.plots .detail p {
   }
 }
 
-/** Détail parcelle **/
+
+/************************************************************/
+/** 07- Bloc de mise à jour                                 */
+/************************************************************/
+.update button {
+  background-color: var(--green-color);
+  color: white;
+}
+
+.update {
+  color: var(--text-light-color);
+}
+
+@media(min-width: 768px) {
+  .update {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+
+/************************************************************/
+/** 08- Détail d'une parcelle                               */
+/************************************************************/
 .plot-detail {
   position: relative;
   width: 100%;
@@ -419,7 +443,9 @@ ul.plots .detail p {
   }
 }
 
-/**Conseils**/
+/************************************************************/
+/** 09- Bloc des conseils                                   */
+/************************************************************/
 .advice {
   /* font-weight: bold; */
   margin: 20px 0;
@@ -438,7 +464,130 @@ ul.plots .detail p {
   font-size: 1.2rem;
 }
 
-/**Légendes**/
+
+/************************************************************/
+/** 10- Tableau des risques                                 */
+/************************************************************/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+td {
+  text-align: center;
+  border: 1px solid var(--bg-dark-color);
+}
+
+td.left {
+  border-left-width: 2px;
+  border-left-color: var(--bg-darken-color);
+}
+
+td.right {
+  border-right-width: 2px;
+  border-right-color: var(--bg-darken-color);
+}
+
+td.bottom {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--bg-darken-color);
+}
+
+td.top {
+  border-top-width: 2px;
+  border-top-color: var(--bg-darken-color);
+}
+
+td.forecast {
+  background-color: var(--bg-dark-color);
+}
+
+.dates td:first-child, .row-legend td  {
+  border: none;
+}
+
+.periods {
+  display: none;
+}
+
+.row-legend span, td.legend:not(.head) {
+  text-align: left;
+  font-style: italic;
+  padding: .1em;
+}
+
+.row-legend span {
+  width: 100%;
+  display: block;
+  margin-top: .6rem;
+  outline: 1px solid var(--bg-dark-color);
+  outline-offset: 1px;
+}
+
+.legend, .j-4, .j-3, .j-2, .j2 {
+  display: none;
+}
+
+.j {
+  font-weight: 600;
+}
+
+td.risk:not(.forecast) {
+  background-color: var(--red-color);
+  color: white;
+}
+
+td.risk.forecast {
+  color: var(--red-color);
+}
+
+td.vigilance:not(.forecast) {
+  background-color: var(--orange-color);
+  /* color: white; */
+}
+
+td.vigilance.forecast {
+  color: var(--orange-color);
+  /* text-shadow: black 1px 0 2px; */
+  /* -webkit-text-stroke: 1px black; */
+}
+
+td.no-risk:not(.forecast) {
+  background-color: var(--green-color);
+}
+
+td.no-risk.forecast {
+  color: var(--text-color);
+}
+
+@media(min-width: 768px) {
+  .j-2, .j2 {
+    display: table-cell;
+  }
+}
+
+@media(min-width: 992px) {
+  .row-legend {
+    display: none;
+  }
+
+  .legend, .j-4, .j-3 {
+    display: table-cell;
+  }
+
+  .periods {
+    display: table-row;
+  }
+
+  .periods td:first-child {
+    background-color: transparent;
+  }
+}
+
+/************************************************************/
+/** 11- Légende du tableau des risques                      */
+/************************************************************/
 .legends {
   display: flex;
   width: 100%;
@@ -526,7 +675,9 @@ li.no-risk.forecast::before {
   }
 }
 
-/**/
+/************************************************************/
+/** 12- Pied de page                                        */
+/************************************************************/
 footer {
   width: var(--content-size);
   background-color: var(--bg-dark-color);
