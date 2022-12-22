@@ -76,7 +76,7 @@ h2 {
   color: var(--text-light-color);
 }
 
-button {
+button, a.button {
   display: inline-block;
   background-color: transparent;
   border-style: none;
@@ -86,7 +86,11 @@ button {
   border-radius: 5px;
 }
 
-button.icon {
+a.button {
+  text-decoration: none;
+}
+
+button.icon, a.button.icon {
   line-height: 1.6;
   font-weight: 600;
   padding: 0;
@@ -253,7 +257,7 @@ header img {
   justify-content: space-between;
 }
 
-.subnav button {
+.subnav a.button {
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.8;
