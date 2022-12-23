@@ -1,0 +1,81 @@
+@import url(./reset.css);
+
+.main {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.main>* {
+  flex:1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image {
+  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 200%;
+  height: 100%;
+  background-image: url(./images/potatoe-feild.webp);
+  background-size: cover;
+  z-index: -1;
+  transform: scaleX(-1);
+  animation: bgslow 160s cubic-bezier(1,1.47,.59,-.02) infinite;
+}
+
+.content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7e8db;
+}
+
+.logo {
+  width: 50%;
+}
+
+.construct {
+  font-size: clamp(1em, 5vw, 2.5em);
+  color: #333;
+}
+
+
+
+@keyframes bgslow {
+  0% {
+      -webkit-transform: translate(0,0);
+      -ms-transform: translate(0,0);
+      -o-transform: translate(0,0);
+      transform: translate(0,0);
+  }
+
+  50% {
+      -webkit-transform: translate(-50%,0%);
+      -ms-transform: translate(-50%,0%);
+      -o-transform: translate(-50%,0%);
+      transform: translate(-50%,0%);
+  }
+
+  100% {
+      -webkit-transform: translate(0%,0%);
+      -ms-transform: translate(0%,0%);
+      -o-transform: translate(0%,0%);
+      transform: translate(0%,0%);
+  }
+}
+
+@media(max-width: 992px){
+  .bg {
+    display: none;
+  }
+}
+

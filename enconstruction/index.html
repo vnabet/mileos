@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <div class="main">
+    <div class="bg">
+      <div class="image">
+      </div>
+    </div>
+    <div class="content">
+      <img src="./images/logo-complet.svg" alt="Mileos" class="logo">
+      <p class="construct">En construction</p>
+    </div>
+  </div>
+
+
+  <script>
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc1Jvb3QiOiJUcnVlIiwiRmlyc3ROYW1lIjoiSsOpcsOpbXkiLCJMYXN0TmFtZSI6IkNhcnRpZXIiLCJMb2dpbiI6ImplcmVteS5jYXJ0aWVyIiwiRG9tYWluTmFtZSI6IkNsaWVudDk5IiwiRG9tYWluSWQiOlsiOTkiLCI5OSJdLCJJZCI6IjQ3NjYxZjAxLWE4OTUtNDY5ZC04MzMzLWFkMGNhNDI3NmJhNiIsIkNsaWVudElkIjoiOTkiLCJEYXRhU2V0TGFiZWwiOiIiLCJSYWRpY2FsIjoiUFYiLCJyb2xlIjpbIjIiLCI1NCIsIjI1MiIsIjI3OCIsIjE5NSIsIjk5IiwiNzkiLCIxNTUiLCIxMCIsIjExIiwiMjgiLCI4IiwiMTM5IiwiMTU0IiwiMTUyIiwiMTc3IiwiMjE3IiwiMjQxIiwiMjk0IiwiMTYiLCI2MSIsIjE1IiwiMTciLCIyMiIsIjI5IiwiNjAiLCIyMCIsIjY2IiwiMTMzIiwiNDYiLCIxNTEiLCIxMjciLCIxOSIsIjEyOCIsIjIxIiwiMjMiLCIzMCIsIjQxIiwiNDMiLCIxMTIiLCI0IiwiMjQiLCIxODEiLCI2IiwiNjgiLCI2MyIsIjcwIiwiNzciLCI1OCIsIjE3OCIsIjE4NiIsIjEwMyIsIjEwNCIsIjEzMSIsIjEzMiIsIjE1OSIsIjE2MCIsIjI5OSIsIjY1IiwiMzkiLCI1NiIsIjEwMCIsIjEwMSIsIjI1NSIsIjgxIiwiOTAiLCIyNjciLCI4NiIsIjg4IiwiMTUwIiwiNTMiLCIxMTYiLCIxMjAiLCIyNTAiLCIyNyIsIjUxIiwiMTA1IiwiMjE1IiwiMTE0IiwiNDgiLCIzNiIsIjEwOCIsIjIzMyIsIjE3MCIsIjE3MSIsIjIyNSIsIjE4NCIsIjE4NSIsIjE4NyIsIjI4OCIsIjI5OCIsIjIyNiIsIjI4NCIsIjE4OCIsIjI4OSIsIjE4OSIsIjE5MSIsIjIyOSIsIjIzMCIsIjIzMSIsIjIzMiIsIjIzNSIsIjIzNiIsIjI0OCIsIjI0OSIsIjI3MyIsIjI1OSIsIjI2MSIsIjI1NyIsIjI1OCIsIjI2NSIsIjI2MCIsIjI2MiIsIjI2MyIsIjQyIiwiNDUiLCI0NCIsIjMxIiwiMjUiLCI5MSIsIjkyIiwiOTMiLCIxMiIsIjMzIiwiODMiLCI4NCIsIjM3IiwiMzgiLCIzNSIsIjI2OCIsIjk1IiwiMTE4IiwiMSIsIjE1NiIsIjExMSIsIjExMyIsIjEyNSIsIjIwNiIsIjEzMCIsIjEyOSIsIjIxMiIsIjExNyIsIjEwMiIsIjEzOCIsIjE5MCIsIjIwNSIsIjE0OCIsIjE0NiIsIjE0MyIsIjE2MiIsIjE2NiIsIjE4MiIsIjE5NiIsIjIwMSIsIjIwMiIsIjE5NyIsIjE5OCIsIjE5OSIsIjIwMCIsIjIxNiIsIjIyNCIsIjI2NiIsIjIyMyJdLCJuYmYiOjE2NzE4MDUwODMsImV4cCI6MTY3MTg0ODI4MywiaWF0IjoxNjcxODA1MDgzLCJpc3MiOiJodHRwOi8vbXkudG9rZW5pc3N1ZXIuY29tIn0.4v6UfiF0svxITp4quxwnLeE4TGkZ27u5PFLN4ZMGba4';
+
+    localStorage.setItem('id_token', token);
+
+
+    function parseJwt (token,part) {
+      var base64Url = token.split('.')[part];
+      var words = CryptoJS.enc.Base64.parse(base64Url);
+      var jsonPayload = CryptoJS.enc.Utf8.stringify(words);
+      return  JSON.parse(jsonPayload);
+    };
+
+
+    function decodeToken() {
+      const token = localStorage.getItem('id_token');
+
+      if(token) {
+        const jwtInfo ={};
+        jwtInfo.size = token.length;
+        jwtInfo.header = parseJwt(token,0);
+        jwtInfo.payload = parseJwt(token,1);
+        jwtInfo.signature = token.split('.')[2];
+        jwtInfo.expires = ((jwtInfo.payload.exp-Date.now().valueOf()/1000)/60).toFixed(1);
+        console.log(jwtInfo);
+      }
+    }
+
+
+
+
+    decodeToken();
+  </script>
+</body>
+</html>
