@@ -23,7 +23,7 @@
   display: block;
   width: 200%;
   height: 100%;
-  background-image: url(./images/potatoe-field.webp);
+  background-image: url(./images/potatoe-field.jpg);
   background-size: cover;
   z-index: -1;
   transform: scaleX(-1);
@@ -46,6 +46,28 @@
 .construct {
   font-size: clamp(1em, 5vw, 2.5em);
   color: #333;
+}
+
+.token {
+  text-align: left;
+  width: 100%;
+}
+
+.token ul {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+}
+
+.token li {
+  line-height: 2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.error {
+  color: red;
 }
 
 
