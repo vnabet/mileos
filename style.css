@@ -334,6 +334,11 @@ ul.plots .status, .plot-detail .status {
   outline-color: var(--red-color);
 }
 
+.status.light {
+  background-color: var(--text-light-color);
+  outline-color: var(--text-light-color);
+}
+
 ul.plots .detail {
   display: flex;
   flex-direction: column;

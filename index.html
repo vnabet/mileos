@@ -11,19 +11,23 @@
 <body>
 
   <header>
-    <h1>Gestion des risques Mildiou</h1>
+    <div>
+      <h1>Gestion des risques Mildiou</h1>
+      <p>Campagne 2022</p>
+    </div>
+    
     <img src="./images/logo-complet.svg" alt="">
   </header>
 
 
   <div class="nav">
     <a class="icon button" href="">
-      <span class="material-symbols-rounded blue">chevron_left</span><span>Parcellaire</span>
+      <!-- <span class="material-symbols-rounded blue">arrow_left</span> --><span>Parcellaire</span>
     </a>
-    <div class="user">
+    <!-- <div class="user">
       <span class="label">Bienvenue Michel Durand</span>
       <button class="icon"><span class="material-symbols-rounded blue">person</span></button>
-    </div>
+    </div> -->
   </div>
 
   <main>
@@ -33,7 +37,7 @@
       <button class="update">Actualiser</button>
     </div>
 
-    <fieldset class="sort">
+    <!-- <fieldset class="sort">
       <legend>Regrouper les parcelles</legend>
       <div>
         <input type="radio" name="sort" id="station" checked>
@@ -45,11 +49,13 @@
         <label for="farm">par exploitation</label>
       </div>
 
-    </fieldset>
+    </fieldset> -->
+
+    <div>Résultats du 22/11/2022</div>
 
     <div class="parcels">
       <div class="group">
-        <h2>Station Boigneville Meteus</h2>
+        <h2>Exploitation 1</h2>
         <ul class="plots">
           <li class="clickable">
             <div class="status red"></div>
@@ -63,7 +69,7 @@
       </div>
   
       <div class="group">
-        <h2>Station Boigneville Meteus Compact</h2>
+        <h2>Exploitation 2</h2>
         <ul class="plots">
           <li class="clickable">
             <div class="status green"></div>
@@ -76,9 +82,18 @@
           <li class="clickable">
             <div class="status green"></div>
             <div class="detail">
-              <h3><a href="./detail.html">Parcelle Tests Samuel Maillard</a></h3>
+              <h3><a href="./detail.html">Parcelle Test Samuel Maillard</a></h3>
               <p class="green">Non levée</p>
               <p>Poids de contamination: 0.00</p>
+            </div>
+          </li>
+
+          <li class="clickable">
+            <div class="status light"></div>
+            <div class="detail">
+              <h3><a href="./detail.html">Parcelle Test ND</a></h3>
+              <p class="light">Indices non-calculés</p>
+              <p class="light">Poids de contamination: ND</p>
             </div>
           </li>
         </ul>
