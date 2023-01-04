@@ -17,15 +17,15 @@
     <div class="content">
       <img src="./images/logo-complet.svg" alt="Mileos" class="logo">
       <p class="construct">En construction</p>
+      <div class="token">
+        <ul></ul>
+      </div>
     </div>
   </div>
 
 
   <script>
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc1Jvb3QiOiJUcnVlIiwiRmlyc3ROYW1lIjoiSsOpcsOpbXkiLCJMYXN0TmFtZSI6IkNhcnRpZXIiLCJMb2dpbiI6ImplcmVteS5jYXJ0aWVyIiwiRG9tYWluTmFtZSI6IkNsaWVudDk5IiwiRG9tYWluSWQiOlsiOTkiLCI5OSJdLCJJZCI6IjQ3NjYxZjAxLWE4OTUtNDY5ZC04MzMzLWFkMGNhNDI3NmJhNiIsIkNsaWVudElkIjoiOTkiLCJEYXRhU2V0TGFiZWwiOiIiLCJSYWRpY2FsIjoiUFYiLCJyb2xlIjpbIjIiLCI1NCIsIjI1MiIsIjI3OCIsIjE5NSIsIjk5IiwiNzkiLCIxNTUiLCIxMCIsIjExIiwiMjgiLCI4IiwiMTM5IiwiMTU0IiwiMTUyIiwiMTc3IiwiMjE3IiwiMjQxIiwiMjk0IiwiMTYiLCI2MSIsIjE1IiwiMTciLCIyMiIsIjI5IiwiNjAiLCIyMCIsIjY2IiwiMTMzIiwiNDYiLCIxNTEiLCIxMjciLCIxOSIsIjEyOCIsIjIxIiwiMjMiLCIzMCIsIjQxIiwiNDMiLCIxMTIiLCI0IiwiMjQiLCIxODEiLCI2IiwiNjgiLCI2MyIsIjcwIiwiNzciLCI1OCIsIjE3OCIsIjE4NiIsIjEwMyIsIjEwNCIsIjEzMSIsIjEzMiIsIjE1OSIsIjE2MCIsIjI5OSIsIjY1IiwiMzkiLCI1NiIsIjEwMCIsIjEwMSIsIjI1NSIsIjgxIiwiOTAiLCIyNjciLCI4NiIsIjg4IiwiMTUwIiwiNTMiLCIxMTYiLCIxMjAiLCIyNTAiLCIyNyIsIjUxIiwiMTA1IiwiMjE1IiwiMTE0IiwiNDgiLCIzNiIsIjEwOCIsIjIzMyIsIjE3MCIsIjE3MSIsIjIyNSIsIjE4NCIsIjE4NSIsIjE4NyIsIjI4OCIsIjI5OCIsIjIyNiIsIjI4NCIsIjE4OCIsIjI4OSIsIjE4OSIsIjE5MSIsIjIyOSIsIjIzMCIsIjIzMSIsIjIzMiIsIjIzNSIsIjIzNiIsIjI0OCIsIjI0OSIsIjI3MyIsIjI1OSIsIjI2MSIsIjI1NyIsIjI1OCIsIjI2NSIsIjI2MCIsIjI2MiIsIjI2MyIsIjQyIiwiNDUiLCI0NCIsIjMxIiwiMjUiLCI5MSIsIjkyIiwiOTMiLCIxMiIsIjMzIiwiODMiLCI4NCIsIjM3IiwiMzgiLCIzNSIsIjI2OCIsIjk1IiwiMTE4IiwiMSIsIjE1NiIsIjExMSIsIjExMyIsIjEyNSIsIjIwNiIsIjEzMCIsIjEyOSIsIjIxMiIsIjExNyIsIjEwMiIsIjEzOCIsIjE5MCIsIjIwNSIsIjE0OCIsIjE0NiIsIjE0MyIsIjE2MiIsIjE2NiIsIjE4MiIsIjE5NiIsIjIwMSIsIjIwMiIsIjE5NyIsIjE5OCIsIjE5OSIsIjIwMCIsIjIxNiIsIjIyNCIsIjI2NiIsIjIyMyJdLCJuYmYiOjE2NzE4MDUwODMsImV4cCI6MTY3MTg0ODI4MywiaWF0IjoxNjcxODA1MDgzLCJpc3MiOiJodHRwOi8vbXkudG9rZW5pc3N1ZXIuY29tIn0.4v6UfiF0svxITp4quxwnLeE4TGkZ27u5PFLN4ZMGba4';
-
-    localStorage.setItem('id_token', token);
-
+    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc1Jvb3QiOiJUcnVlIiwiRmlyc3ROYW1lIjoiSsOpcsOpbXkiLCJMYXN0TmFtZSI6IkNhcnRpZXIiLCJMb2dpbiI6ImplcmVteS5jYXJ0aWVyIiwiRG9tYWluTmFtZSI6IkNsaWVudDk5IiwiRG9tYWluSWQiOlsiOTkiLCI5OSJdLCJJZCI6IjQ3NjYxZjAxLWE4OTUtNDY5ZC04MzMzLWFkMGNhNDI3NmJhNiIsIkNsaWVudElkIjoiOTkiLCJEYXRhU2V0TGFiZWwiOiIiLCJSYWRpY2FsIjoiUFYiLCJyb2xlIjpbIjIiLCI1NCIsIjI1MiIsIjI3OCIsIjE5NSIsIjk5IiwiNzkiLCIxNTUiLCIxMCIsIjExIiwiMjgiLCI4IiwiMTM5IiwiMTU0IiwiMTUyIiwiMTc3IiwiMjE3IiwiMjQxIiwiMjk0IiwiMTYiLCI2MSIsIjE1IiwiMTciLCIyMiIsIjI5IiwiNjAiLCIyMCIsIjY2IiwiMTMzIiwiNDYiLCIxNTEiLCIxMjciLCIxOSIsIjEyOCIsIjIxIiwiMjMiLCIzMCIsIjQxIiwiNDMiLCIxMTIiLCI0IiwiMjQiLCIxODEiLCI2IiwiNjgiLCI2MyIsIjcwIiwiNzciLCI1OCIsIjE3OCIsIjE4NiIsIjEwMyIsIjEwNCIsIjEzMSIsIjEzMiIsIjE1OSIsIjE2MCIsIjI5OSIsIjY1IiwiMzkiLCI1NiIsIjEwMCIsIjEwMSIsIjI1NSIsIjgxIiwiOTAiLCIyNjciLCI4NiIsIjg4IiwiMTUwIiwiNTMiLCIxMTYiLCIxMjAiLCIyNTAiLCIyNyIsIjUxIiwiMTA1IiwiMjE1IiwiMTE0IiwiNDgiLCIzNiIsIjEwOCIsIjIzMyIsIjE3MCIsIjE3MSIsIjIyNSIsIjE4NCIsIjE4NSIsIjE4NyIsIjI4OCIsIjI5OCIsIjIyNiIsIjI4NCIsIjE4OCIsIjI4OSIsIjE4OSIsIjE5MSIsIjIyOSIsIjIzMCIsIjIzMSIsIjIzMiIsIjIzNSIsIjIzNiIsIjI0OCIsIjI0OSIsIjI3MyIsIjI1OSIsIjI2MSIsIjI1NyIsIjI1OCIsIjI2NSIsIjI2MCIsIjI2MiIsIjI2MyIsIjQyIiwiNDUiLCI0NCIsIjMxIiwiMjUiLCI5MSIsIjkyIiwiOTMiLCIxMiIsIjMzIiwiODMiLCI4NCIsIjM3IiwiMzgiLCIzNSIsIjI2OCIsIjk1IiwiMTE4IiwiMSIsIjE1NiIsIjExMSIsIjExMyIsIjEyNSIsIjIwNiIsIjEzMCIsIjEyOSIsIjIxMiIsIjExNyIsIjEwMiIsIjEzOCIsIjE5MCIsIjIwNSIsIjE0OCIsIjE0NiIsIjE0MyIsIjE2MiIsIjE2NiIsIjE4MiIsIjE5NiIsIjIwMSIsIjIwMiIsIjE5NyIsIjE5OCIsIjE5OSIsIjIwMCIsIjIxNiIsIjIyNCIsIjI2NiIsIjIyMyJdLCJuYmYiOjE2NzE4MDUwODMsImV4cCI6MTY3MTg0ODI4MywiaWF0IjoxNjcxODA1MDgzLCJpc3MiOiJodHRwOi8vbXkudG9rZW5pc3N1ZXIuY29tIn0.4v6UfiF0svxITp4quxwnLeE4TGkZ27u5PFLN4ZMGba4';
 
     function parseJwt (token,part) {
       var base64Url = token.split('.')[part];
@@ -36,17 +36,82 @@
 
 
     function decodeToken() {
-      const token = localStorage.getItem('id_token');
+      let token;
+
+      const queryString = window.location.search;
+      //console.log(queryString);
+      if(queryString) {
+        const urlParams = new URLSearchParams(queryString);
+
+        token = urlParams.get('token');
+      }
+
+      console.log('TOKEN', token)
 
       if(token) {
         const jwtInfo ={};
-        jwtInfo.size = token.length;
-        jwtInfo.header = parseJwt(token,0);
-        jwtInfo.payload = parseJwt(token,1);
-        jwtInfo.signature = token.split('.')[2];
-        jwtInfo.expires = ((jwtInfo.payload.exp-Date.now().valueOf()/1000)/60).toFixed(1);
+        
+        try {
+          jwtInfo.size = token.length;
+          jwtInfo.header = parseJwt(token,0);
+          jwtInfo.payload = parseJwt(token,1);
+          jwtInfo.signature = token.split('.')[2];
+          jwtInfo.expires = ((jwtInfo.payload.exp-Date.now().valueOf()/1000)/60).toFixed(1);
+
+        } catch(e) {
+          displayError(e.message);
+        }
+        
         console.log(jwtInfo);
+
+        if(jwtInfo && jwtInfo.payload) displayPayload(jwtInfo.payload);
       }
+    }
+
+    function displayPayload(payload) {
+
+      const div = document.querySelector('.token ul');
+
+      let content = '';
+
+      if(payload.ClientId) {
+        content += `<li>ClientId: ${payload.ClientId}</li>`;
+      }
+
+      if(payload.DomainId && payload.DomainId.length) {
+        content += `<li>DomainId: ${payload.DomainId.join(', ')}</li>`;
+      }
+
+      if(payload.DomainName) {
+        content += `<li>Domaine: ${payload.DomainName}</li>`;
+      }
+
+      if(payload.DataSetLabel) {
+        content += `<li>DataSetLabel: ${payload.DataSetLabel}</li>`;
+      }
+
+      if(payload.FirstName) {
+        content += `<li>Nom: ${payload.FirstName} ${payload.LastName}</li>`;
+      }
+
+      if(payload.Login) {
+        content += `<li>Login: ${payload.Login}</li>`;
+      }
+
+      if(payload.Id) {
+        content += `<li>Id: ${payload.Id}</li>`;
+      }
+
+      div.innerHTML = content;
+
+    }
+
+    function displayError(message) {
+      const div = document.querySelector('.token ul');
+
+      let content = `<div class="error">Token Invalide: ${message}</div>`;
+
+      div.innerHTML = content;
     }
 
 
