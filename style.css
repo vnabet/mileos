@@ -689,6 +689,9 @@ footer {
   border: 20px solid var(--bg-light-color);
   padding: 20px;
   color: var(--text-light-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 footer a {
@@ -701,4 +704,12 @@ footer a:not(:first-child)::before {
   content: '-';
   display: inline-block;
   padding: 0 5px;
+}
+
+footer .logo {
+  text-align: right;
+}
+
+footer .logo img {
+  height: 40px;
 }
