@@ -330,7 +330,7 @@ ul.plots .status, .plot-detail .status {
 }
 
 
-.status::before {
+.daltonisme .status::before {
   content: '?';
   position: absolute;
   top: 0;
@@ -354,7 +354,7 @@ ul.plots .status, .plot-detail .status {
   outline-color: var(--green-color);
 }
 
-.status.no-risk::before {
+.daltonisme .status.no-risk::before {
   content: '✔';
 }
 
@@ -363,7 +363,7 @@ ul.plots .status, .plot-detail .status {
   outline-color: var(--red-color);
 }
 
-.status.risk::before {
+.daltonisme .status.risk::before {
   content: 'R';
 }
 
@@ -372,7 +372,7 @@ ul.plots .status, .plot-detail .status {
   outline-color: var(--orange-color);
 }
 
-.status.warning::before {
+.daltonisme .status.warning::before {
   content: '!';
 }
 
@@ -381,7 +381,7 @@ ul.plots .status, .plot-detail .status {
   outline-color: var(--text-light-color);
 }
 
-.status.unknown::before {
+.daltonisme .status.unknown::before {
   content: '?';
 }
 
@@ -592,13 +592,17 @@ td.forecast {
   font-weight: 600;
 }
 
+.dates td.j {
+  min-width: 150px;
+}
+
 td.risk:not(.forecast) {
   background-color: var(--red-color);
   color: white;
 }
 
 
-td:is(.risk, .vigilance, .no-risk)::before {
+.daltonisme td:is(.risk, .vigilance, .no-risk)::before {
   position: absolute;;
   top:2px;
   left: 2px;
@@ -610,7 +614,7 @@ td:is(.risk, .vigilance, .no-risk)::before {
   color: var(--text-color);
 } */
 
-td.risk::before {
+.daltonisme td.risk::before {
   content: 'R';
 }
 
@@ -623,7 +627,7 @@ td.vigilance:not(.forecast) {
   /* color: white; */
 }
 
-td.vigilance::before {
+.daltonisme td.vigilance::before {
   content: '!';
 }
 
@@ -633,7 +637,7 @@ td.vigilance.forecast {
   /* -webkit-text-stroke: 1px black; */
 }
 
-td.no-risk::before {
+.daltonisme td.no-risk::before {
   content: '\2714';
   
 }
@@ -725,6 +729,10 @@ li.forecast::before {
 }
 
 li.risk::before {
+  content: '0-9';
+}
+
+.daltonisme li.risk::before {
   content: 'R 0-9';
 }
 
@@ -738,6 +746,10 @@ li.risk.forecast::before {
 }
 
 li.vigilance::before {
+  content: '0-9';
+}
+
+.daltonisme li.vigilance::before {
   content: '! 0-9';
 }
 
@@ -750,6 +762,10 @@ li.vigilance.forecast::before {
 }
 
 li.no-risk::before {
+  content: '0-9';
+}
+
+.daltonisme li.no-risk::before {
   content: '✔ 0-9';
 }
 
@@ -784,17 +800,23 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row;
+}
+
+footer .links {
+  display: flex;
 }
 
 footer a {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   text-decoration: none;
   color: var(--text-light-color);
 }
 
 footer a:not(:first-child)::before {
   content: '-';
-  display: inline-block;
+  display: flex;
   padding: 0 5px;
 }
 
@@ -806,6 +828,23 @@ footer .logo img {
   height: 40px;
 }
 
-.dates td.j {
-  min-width: 150px;
+#daltonisme::after {
+  margin-left: 5px;
+  display: flex;
+  width: 30px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--red-color);
+  border-radius: 5px;
+  
+  font-weight: 600;
+  color: white;
+  content: 'off'
+}
+
+.daltonisme #daltonisme::after {
+  /* color: var(--green-color); */
+  background-color: var(--green-color);
+  content: 'on'
 }
