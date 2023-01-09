@@ -602,7 +602,7 @@ td:is(.risk, .vigilance, .no-risk)::before {
   position: absolute;;
   top:2px;
   left: 2px;
-  font-size: .6rem;
+  font-size: .7rem;
   font-weight: 600;
 }
 
