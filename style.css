@@ -84,6 +84,10 @@ h2 {
   color: var(--text-light-color);
 }
 
+.white {
+  color: white;
+}
+
 /** Boutons et liens boutons **/
 button, a.button {
   display: inline-block;
@@ -322,11 +326,36 @@ ul.plots .status, .plot-detail .status {
   outline-style: solid;
   outline-offset: 5px;
   margin: 10px;
+  position: relative;
 }
+
+
+.status::before {
+  content: '?';
+  position: absolute;
+  top: 0;
+  left: 4px;
+  z-index: 99;
+  color: white;
+  font-size: .9rem;
+  display: block;
+}
+
+/* .status .indicator {
+  font-size: .9rem;
+  position: absolute;
+  top: 0px;
+  left: 2px;
+
+} */
 
 .status.green {
   background-color: var(--green-color);
   outline-color: var(--green-color);
+}
+
+.status.green::before {
+  content: '✔';
 }
 
 .status.red {
@@ -334,9 +363,26 @@ ul.plots .status, .plot-detail .status {
   outline-color: var(--red-color);
 }
 
+.status.red::before {
+  content: 'R';
+}
+
+.status.orange {
+  background-color: var(--orange-color);
+  outline-color: var(--orange-color);
+}
+
+.status.orange::before {
+  content: '!';
+}
+
 .status.light {
   background-color: var(--text-light-color);
   outline-color: var(--text-light-color);
+}
+
+.status.light::before {
+  content: '?';
 }
 
 ul.plots .detail {
@@ -482,6 +528,7 @@ table {
 td {
   text-align: center;
   border: 1px solid var(--bg-dark-color);
+  position: relative;
 }
 
 td.left {
@@ -543,6 +590,23 @@ td.risk:not(.forecast) {
   color: white;
 }
 
+
+td:is(.risk, .vigilance, .no-risk)::before {
+  position: absolute;;
+  top:2px;
+  left: 2px;
+  font-size: .6rem;
+  font-weight: 600;
+}
+
+/* td:is(.risk, .vigilance, .no-risk).forecast::before {
+  color: var(--text-color);
+} */
+
+td.risk::before {
+  content: 'R';
+}
+
 td.risk.forecast {
   color: var(--red-color);
 }
@@ -552,10 +616,19 @@ td.vigilance:not(.forecast) {
   /* color: white; */
 }
 
+td.vigilance::before {
+  content: '!';
+}
+
 td.vigilance.forecast {
   color: var(--orange-color);
   /* text-shadow: black 1px 0 2px; */
   /* -webkit-text-stroke: 1px black; */
+}
+
+td.no-risk::before {
+  content: '\2714';
+  
 }
 
 td.no-risk:not(.forecast) {
@@ -632,7 +705,8 @@ td.no-risk.forecast {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
+  padding: 0 2px;
+  width: 40px;
   height: 20px;
   background-color: transparent;
   margin: 0 5px;
@@ -641,6 +715,10 @@ td.no-risk.forecast {
 
 li.forecast::before {
   background-color: var(--bg-dark-color);
+}
+
+li.risk::before {
+  content: 'R 0-9';
 }
 
 li.risk:not(.forecast)::before {
@@ -652,13 +730,20 @@ li.risk.forecast::before {
   color: var(--red-color);
 }
 
+li.vigilance::before {
+  content: '! 0-9';
+}
+
 li.vigilance:not(.forecast)::before {
   background-color: var(--orange-color);
-  content: '';
 }
 
 li.vigilance.forecast::before {
   color: var(--orange-color);
+}
+
+li.no-risk::before {
+  content: '✔ 0-9';
 }
 
 li.no-risk:not(.forecast)::before {
@@ -712,4 +797,8 @@ footer .logo {
 
 footer .logo img {
   height: 40px;
+}
+
+.dates td.j {
+  min-width: 150px;
 }
