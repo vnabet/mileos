@@ -555,6 +555,17 @@ td.forecast {
   background-color: var(--bg-dark-color);
 }
 
+.daltonisme td.forecast {
+  background-color: var(--bg-dark-color);
+  background: repeating-linear-gradient(
+  -45deg,
+  var(--bg-light-color),
+  var(--bg-light-color) 10px,
+  var(--bg-dark-color) 10px,
+  var(--bg-dark-color) 20px
+);
+}
+
 .dates td:first-child, .row-legend td , .date-selector td {
   border: none;
 }
@@ -726,6 +737,16 @@ td.no-risk.forecast {
 
 li.forecast::before {
   background-color: var(--bg-dark-color);
+}
+
+.daltonisme li.forecast::before {
+  background: repeating-linear-gradient(
+  -45deg,
+  var(--bg-light-color),
+  var(--bg-light-color) 5px,
+  var(--bg-dark-color) 5px,
+  var(--bg-dark-color) 10px
+);
 }
 
 li.risk::before {
