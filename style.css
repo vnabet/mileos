@@ -555,8 +555,15 @@ td.forecast {
   background-color: var(--bg-dark-color);
 }
 
-.dates td:first-child, .row-legend td  {
+.dates td:first-child, .row-legend td , .date-selector td {
   border: none;
+}
+
+.date-selector .j>div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .periods {
