@@ -349,39 +349,39 @@ ul.plots .status, .plot-detail .status {
 
 } */
 
-.status.green {
+.status.no-risk {
   background-color: var(--green-color);
   outline-color: var(--green-color);
 }
 
-.status.green::before {
+.status.no-risk::before {
   content: '✔';
 }
 
-.status.red {
+.status.risk {
   background-color: var(--red-color);
   outline-color: var(--red-color);
 }
 
-.status.red::before {
+.status.risk::before {
   content: 'R';
 }
 
-.status.orange {
+.status.warning {
   background-color: var(--orange-color);
   outline-color: var(--orange-color);
 }
 
-.status.orange::before {
+.status.warning::before {
   content: '!';
 }
 
-.status.light {
+.status.unknown {
   background-color: var(--text-light-color);
   outline-color: var(--text-light-color);
 }
 
-.status.light::before {
+.status.unknown::before {
   content: '?';
 }
 
@@ -505,11 +505,11 @@ ul.plots .detail p {
   /* display: flex; */
 }
 
-.advice.warning, .advice.warning strong {
+.advice.risk, .advice.risk strong {
   color: var(--red-color);
 }
 
-.advice.warning::before {
+.advice.risk::before {
   content: '\E000';
   font-family: 'Material Symbols Rounded';
   font-size: 1.2rem;
