@@ -603,7 +603,7 @@ td:is(.risk, .vigilance, .no-risk)::before {
   top:2px;
   left: 2px;
   font-size: .7rem;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 /* td:is(.risk, .vigilance, .no-risk).forecast::before {
