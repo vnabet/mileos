@@ -28,6 +28,7 @@
   --blue-color: #3864b3;
   --green-color: #94cc3d;
   --red-color: #be202e;
+  --red-light-color: #df6c76;
   --orange-color: orange;
 
   --text-color: #000;
@@ -611,6 +612,17 @@ td.risk:not(.forecast) {
   background-color: var(--red-color);
   color: white;
 }
+
+/* .daltonisme td.risk:not(.forecast) {
+  background-color: var(--red-color);
+  background: repeating-linear-gradient(
+  90deg,
+  var(--red-color),
+  var(--red-color) 10px,
+  var(--red-light-color) 10px,
+  var(--red-light-color) 20px
+);
+} */
 
 
 .daltonisme td:is(.risk, .vigilance, .no-risk)::before {
