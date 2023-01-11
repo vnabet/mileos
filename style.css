@@ -29,9 +29,12 @@
 
   --blue-color: #1d83f6;
   --green-color: #94cc3d;
+  --green-color-alpha: #94cc3d55;
   --red-color: #be202e;
+  --red-color-alpha: #be202e55;
   --red-light-color: #df6c76;
-  --orange-color: orange;
+  --orange-color: #ffa500;
+  --orange-color-alpha: #ffa50055;
 
   --text-color: #000;
   --text-light-color: #8b8b8b;
@@ -372,6 +375,7 @@ ul.plots li {
   /* background-color: var(--green-color);
   outline-color: var(--green-color); */
   border-color: var(--green-color);
+  /* background-color: var(--green-color-alpha); */
 }
 
 .daltonisme .status.no-risk::before {
@@ -382,6 +386,7 @@ ul.plots li {
   /* background-color: var(--red-color);
   outline-color: var(--red-color); */
   border-color: var(--red-color);
+  /* background-color: var(--red-color-alpha); */
 }
 
 .daltonisme .status.risk::before {
@@ -392,6 +397,7 @@ ul.plots li {
   /* background-color: var(--orange-color);
   outline-color: var(--orange-color); */
   border-color: var(--orange-color);
+  /* background-color: var(--orange-color-alpha); */
 }
 
 .daltonisme .status.warning::before {
@@ -402,6 +408,7 @@ ul.plots li {
   /* background-color: var(--text-light-color);
   outline-color: var(--text-light-color); */
   border-color: var(--text-light-color);
+  /* background-color: var(--bg-darken-color); */
 }
 
 .daltonisme .status.unknown::before {
