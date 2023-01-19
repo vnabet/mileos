@@ -21,20 +21,27 @@
 /************************************************************/
 :root {
   /* --bg-dark-color: #f1f1f1; */
-  --bg-darken-color: #aaa;
-  --bg-dark-color: #ddd;
+  --bg-darken-color: #dcdcdc;
+  --bg-dark-color: #F2F2F2;
   --bg-light-color: #fff;
 
-  --blue-color: #3864b3;
+  /* --border-color:  */
+
+  --blue-color: #1d83f6;
   --green-color: #94cc3d;
+  --green-color-alpha: #94cc3d55;
   --red-color: #be202e;
+  --red-color-alpha: #be202e55;
   --red-light-color: #df6c76;
-  --orange-color: orange;
+  --orange-color: #ffa500;
+  --orange-color-alpha: #ffa50055;
 
   --text-color: #000;
   --text-light-color: #8b8b8b;
+  /* --text-light-color: #dcdcdc; */
 
-  --content-size: clamp(200px, 100vw, 1024px);
+  /* --content-size: clamp(200px, 100vw, 1024px); */
+  --content-size: clamp(200px, 100vw, 1200px);
 }
 
 /************************************************************/
@@ -52,7 +59,7 @@ body {
 }
 
 h1 {
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1rem, 4vw, 1.85rem);
 }
 
 h2 {
@@ -105,8 +112,8 @@ a.button {
 }
 
 button.icon, a.button.icon {
-  line-height: 1.6;
-  font-weight: 600;
+  line-height: 2;
+  font-weight: 700;
   padding: 0;
   font-size: 1.2rem;
 }
@@ -263,7 +270,7 @@ header img {
 .subnav a.button {
   font-weight: 300;
   font-size: 1rem;
-  line-height: 1.8;
+  line-height: 2.3;
 }
 
 /************************************************************/
@@ -310,11 +317,12 @@ ul.plots {
 ul.plots li {
   width: 100%;
   display: flex;
-  border: 1px solid var(--bg-dark-color);
+  border: 1px solid var(--bg-darken-color);
   padding: 10px;
+  border-radius: 5px;
 }
 
-ul.plots .status, .plot-detail .status {
+/* ul.plots .status, .plot-detail .status {
   display: flex;
   min-width: 60px;
   min-height: 60px;
@@ -328,6 +336,19 @@ ul.plots .status, .plot-detail .status {
   outline-offset: 5px;
   margin: 10px;
   position: relative;
+} */
+.status {
+  display: flex;
+  min-width: 60px;
+  min-height: 60px;
+  height: 70px;
+  width: 70px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  /* margin: 10px; */
+  position: relative;
+  border: 3px solid var(--bg-darken-color);
 }
 
 
@@ -351,8 +372,10 @@ ul.plots .status, .plot-detail .status {
 } */
 
 .status.no-risk {
-  background-color: var(--green-color);
-  outline-color: var(--green-color);
+  /* background-color: var(--green-color);
+  outline-color: var(--green-color); */
+  border-color: var(--green-color);
+  /* background-color: var(--green-color-alpha); */
 }
 
 .daltonisme .status.no-risk::before {
@@ -360,8 +383,10 @@ ul.plots .status, .plot-detail .status {
 }
 
 .status.risk {
-  background-color: var(--red-color);
-  outline-color: var(--red-color);
+  /* background-color: var(--red-color);
+  outline-color: var(--red-color); */
+  border-color: var(--red-color);
+  /* background-color: var(--red-color-alpha); */
 }
 
 .daltonisme .status.risk::before {
@@ -369,8 +394,10 @@ ul.plots .status, .plot-detail .status {
 }
 
 .status.warning {
-  background-color: var(--orange-color);
-  outline-color: var(--orange-color);
+  /* background-color: var(--orange-color);
+  outline-color: var(--orange-color); */
+  border-color: var(--orange-color);
+  /* background-color: var(--orange-color-alpha); */
 }
 
 .daltonisme .status.warning::before {
@@ -378,12 +405,43 @@ ul.plots .status, .plot-detail .status {
 }
 
 .status.unknown {
-  background-color: var(--text-light-color);
-  outline-color: var(--text-light-color);
+  /* background-color: var(--text-light-color);
+  outline-color: var(--text-light-color); */
+  border-color: var(--text-light-color);
+  /* background-color: var(--bg-darken-color); */
 }
 
 .daltonisme .status.unknown::before {
   content: '?';
+}
+
+/**  Stades **/
+.status.stade-1 {
+  background-image: url('./images/stages/1.png');
+}
+
+.status.stade-2 {
+  background-image: url('./images/stages/2.png');
+}
+
+.status.stade-3 {
+  background-image: url('./images/stages/3.png');
+}
+
+.status.stade-4 {
+  background-image: url('./images/stages/4.png');
+}
+
+.status.stade-5 {
+  background-image: url('./images/stages/5.png');
+}
+
+.status.stade-6 {
+  background-image: url('./images/stages/6.png');
+}
+
+.status.stade-7 {
+  background-image: url('./images/stages/7.png');
 }
 
 ul.plots .detail {
@@ -411,6 +469,12 @@ ul.plots .detail p {
 @media(min-width: 768px) {
   ul.plots li {
     width: calc(50% - 5px);
+  }
+}
+
+@media(min-width: 1024px) {
+  ul.plots li {
+    width: calc(33% - 5px);
   }
 }
 
@@ -444,7 +508,11 @@ ul.plots .detail p {
   width: 100%;
   display: flex;
   /* height: 80px; */
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+.plot-detail>div:not(.status) {
+  flex: 1;
 }
 
 .plot-detail ul.infos {
@@ -453,11 +521,9 @@ ul.plots .detail p {
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  column-gap: 15px;
-  margin-left: 10px;
+  column-gap: 25px;
   flex-grow: 1;
-  font-size: .8rem;
+  font-size: .85rem;
 }
 
 .plot-detail .status {
@@ -468,15 +534,16 @@ ul.plots .detail p {
   /* width: calc(50% - 15px); */
   position: relative;
   display: flex;
-  border-bottom: 1px solid var(--bg-dark-color);
+  border-bottom: 1px solid var(--bg-darken-color);
 }
 
 .plot-detail .label {
   color: var(--text-light-color);
+  width: 100px;
 }
 
 .plot-detail .value {
-  text-align: right;
+  text-align: left;
   flex-grow: 1;
 }
 
@@ -485,8 +552,19 @@ ul.plots .detail p {
     max-height: 80px;
   }
 
+  .plot-detail>div:not(.status) {
+    height: 40px;
+  }
+
   .plot-detail ul.infos {
     flex-wrap: wrap;
+    height: 100%;
+    align-content: flex-start;
+    margin-left: 10px;
+  }
+
+  .plot-detail ul.infos li {
+    width: calc(33% - 25px);
   }
 
 
@@ -499,11 +577,9 @@ ul.plots .detail p {
 /** 09- Bloc des conseils                                   */
 /************************************************************/
 .advice {
-  /* font-weight: bold; */
-  margin: 20px 0;
+  /* margin: 20px 0;
   border: 1px solid var(--bg-dark-color);
-  padding: 20px;
-  /* display: flex; */
+  padding: 20px; */
 }
 
 .advice.risk, .advice.risk strong {
@@ -514,6 +590,12 @@ ul.plots .detail p {
   content: '\E000';
   font-family: 'Material Symbols Rounded';
   font-size: 1.2rem;
+}
+
+@media(min-width: 768px) {
+  .advice {
+    margin-left: 10px;
+  }
 }
 
 
@@ -528,12 +610,12 @@ table {
 
 td {
   text-align: center;
-  border: 1px solid var(--bg-dark-color);
+  border: 1px solid var(--bg-darken-color);
   position: relative;
 }
 
 td.left {
-  border-left-width: 2px;
+  border-left-width: px;
   border-left-color: var(--bg-darken-color);
 }
 
@@ -582,6 +664,10 @@ td.forecast {
   display: none;
 }
 
+.row-legend span, td.legend {
+  color: var(--text-light-color);
+}
+
 .row-legend span, td.legend:not(.head) {
   text-align: left;
   font-style: italic;
@@ -601,11 +687,15 @@ td.forecast {
 }
 
 .j {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .dates td.j {
   min-width: 150px;
+}
+
+td.forecast {
+  color: var(--text-light-color);
 }
 
 td.risk:not(.forecast) {
@@ -630,7 +720,7 @@ td.risk:not(.forecast) {
   top:2px;
   left: 2px;
   font-size: .7rem;
-  /* font-weight: 600; */
+  /* font-weight: 700; */
 }
 
 /* td:is(.risk, .vigilance, .no-risk).forecast::before {
@@ -714,7 +804,7 @@ td.no-risk.forecast {
 
 .legends h4 {
   font-size: .8rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .legends ul {
@@ -724,7 +814,8 @@ td.no-risk.forecast {
   margin: 0;
   padding: 0;
   gap: 10px;
-  border: 1px solid var(--bg-dark-color);
+  border: 1px solid var(--bg-darken-color);
+  border-radius: 5px;
   padding: 10px;
 }
 
@@ -735,7 +826,7 @@ td.no-risk.forecast {
 
 .legends li::before  {
   content:'0-9';
-  font-size: .7rem;
+  font-size: .8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -744,7 +835,7 @@ td.no-risk.forecast {
   height: 20px;
   background-color: transparent;
   margin: 0 5px;
-  border: 1px solid var(--bg-dark-color)
+  border: 1px solid var(--bg-darken-color)
 }
 
 li.forecast::before {
@@ -828,7 +919,7 @@ footer {
   width: var(--content-size);
   background-color: var(--bg-dark-color);
   border: 20px solid var(--bg-light-color);
-  padding: 20px;
+  padding: 10px;
   color: var(--text-light-color);
   display: flex;
   align-items: center;
@@ -858,7 +949,7 @@ footer .logo {
 }
 
 footer .logo img {
-  height: 40px;
+  height: 30px;
 }
 
 #daltonisme::after {
@@ -871,7 +962,7 @@ footer .logo img {
   background-color: var(--red-color);
   border-radius: 5px;
   
-  font-weight: 600;
+  font-weight: 700;
   color: white;
   content: 'off'
 }
